@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>NutPlus</title>
+        <link rel="stylesheet" href="style-layout.css">
+        <link rel="stylesheet" href="style-presentation.css">
+        <link rel="stylesheet" href="style-size.css">
+        <script src="https://kit.fontawesome.com/4d89e47c14.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body>  
+        <form class="buyTicket-form">
+            <div class="buyTicket-title">
+                영화 예매하기
+            </div>
+            <fieldset class="buyTicket-fieldset">
+                <div class="fieldset-movieName">
+                    <span>영화</span><br> 
+                    <select>
+                        <option value="IronMan1">아이언맨1</option>
+                        <option value="carribean">캐리비안의 해적</option>
+                        <option value="rampage">램페이지</option>
+                        <option value="thor">토르</option>
+                        <option value="transformer">트랜스포머</option>
+                    </select>
+                </div>
+                <div class="fieldset-number">
+                    <span>인원</span><br>  
+                    <label for="buyNumberId1">1명</label>
+                    <input id="buyNumberId1" class="buyTicket-number" name="book-number" type="radio" value="1"/>
+                    <label for="buyNumberId2">2명</label>
+                    <input id="buyNumberId2" class="buyTicket-number" name="book-number" type="radio" value="2"/>
+                    <label for="buyNumberId3">3명</label>
+                    <input id="buyNumberId3" class="buyTicket-number" name="book-number" type="radio" value="3"/>
+                    <label for="buyNumberId4">4명</label>
+                    <input id="buyNumberId4" class="buyTicket-number" name="book-number" type="radio" value="4"/>
+                    <label for="buyNumberId5">5명</label>
+                    <input id="buyNumberId5" class="buyTicket-number" name="book-number" type="radio" value="5"/>
+                </div>
+                <div class="fieldset-calender">
+                    <span>날짜</span><br>  
+                    <input id="buyTicket-calender" type="date" value="book-date" min="2020-05-12"/>
+                </div>
+                <div class="fieldset-movieTime">
+                    <span>영화시간</span><br> 
+                    <select>
+                        <option value="10:00">10:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="19:00">19:00</option>
+                    </select>
+                </div>
+                <div class="fieldset-button-wrapper">
+                    <input id="book_button" type="submit" value="예매" onClick="alert('예매되었습니다. 금요일 파티 초대장이 메일로 발송되었습니다.')" />
+                    <input id="reset_button" type="reset" value="취소" />
+                </div>
+            </fieldset>
+        </form> 
+    </body>
+</html>

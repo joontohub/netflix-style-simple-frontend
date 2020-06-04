@@ -1,0 +1,118 @@
+body {
+    background-color: black;
+}
+header {
+    background-color: black;
+}
+
+
+.navbar_menu_subnav:hover {
+    background-color: red;
+    transition: 0.7s;
+}
+.navbar_sign_subnav:hover {
+    background-color: red;
+    transition: 0.7s;
+}
+
+.nav-a:hover {
+    transition: 0.7s;
+}
+a {
+    color: white;
+}
+a:link {
+    color:white;
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+.logo , .logo-a {
+    font-size: 50px;
+    color: red;
+}
+.logo-a:visited , .logo-a:link{
+    color: red;
+    text-decoration: none;
+}
+.article-title {
+    color: white;
+}
+
+.Showing-ul li,.trending-ul li ,.top5marvel-ul li ,.ticket-movie-ul li {
+    float: left;
+}
+.img-box {
+    background-color: white;
+}
+.img-box:hover {
+    transition: 0.7s;
+}
+
+.copyright {
+    color: white;
+}
+.SNS-icon {
+    color:red;
+}
+.SNS-icon i:hover {
+    transition: 0.8s;
+    color: red;
+}
+iframe {
+    color: black;
+    background-color: white;
+}
+.iframe-map{
+    color: black;
+    background-color: white;
+}
+.signUp-form , .signIn-form , .buyTicket-form{
+    color: white;
+}
+.signUp-title, .signIn-title , .buyTicket-title {
+    color:white;
+    font-weight: bold;
+}
+
+#login_button, #reset_button, #send_button ,#book_button {
+    color: red;
+}
+.findPassword a:hover ,.signUp-signIn a:hover , .signIn-signUp a:hover {
+    color: red;
+}
+.findPassword-title {
+    color:white;
+}
+.introduce-wrapper {
+    color:white;
+}
+.movie-description {
+    color: white;
+}
+.movie-description-title {
+    font-style: italic;
+}
+
+
+#login_button, #reset_button {
+    cursor: pointer;
+}
+
+#login_button:hover , #reset_button:hover , #book_button:hover ,#send_button:hover{
+    transition: 0.5s;
+    background-color: red;
+    color: white;
+}
+
+select {
+    appearance: none;
+}
+select:hover {
+    transition: 1s;
+    background-color: beige;
+    color:black;
+}
+

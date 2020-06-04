@@ -1,0 +1,57 @@
+
+header {
+    text-align: center;
+}
+.navbar_menu {
+    text-align: center;    
+}
+.nav-a {
+    display: inline-block;
+}
+.Showing ,.trending, .top5marvel ,.ticket-movie {
+    text-align: center;
+}
+.Showing-ul,.trending-ul ,.top5marvel-ul , .ticket-movie-ul{
+    list-style: none;
+    display: inline-block;
+} 
+
+.img-box {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+}
+.copyright {
+    text-align: center;
+}
+.SNS {
+    text-align: center;
+}
+.SNS-icon {
+    text-align: center;
+    display: inline-block;
+}
+.iframe-wrapper {
+    text-align: center;
+}
+iframe {
+    display: inline-block;
+}
+.iframe-map{
+    display: inline-block;
+}
+.signUp-form , .signIn-form , .buyTicket-form{
+    text-align: center;
+}
+.signUp-title, .signIn-title , .buyTicket-title {
+    display: inline-block;
+}
+/* Introduce */
+.introduce-wrapper {
+    text-align: center;
+}
+.movie-description {
+    text-align: center;
+}
+
+
