@@ -47,6 +47,9 @@ a:visited {
 .img-box {
     background-color: white;
 }
+.showing-img-box {
+    background-color: white;
+}
 .img-box:hover {
     transition: 0.7s;
 }

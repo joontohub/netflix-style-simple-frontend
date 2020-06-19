@@ -55,6 +55,10 @@ header {
     width: 200px;
     height: 430px;
 }
+.showing-img-box {
+    width: 200px;
+    height: 430px;
+}
 .poster-images {
     height: 100%;
 }
@@ -92,22 +96,30 @@ iframe {
     margin:0 auto;
     width:35%;
     height: 300px;
-
+}
+.iframe-ticket {
+    height: 700px;
 }
 .signUp-title, .signIn-title , .buyTicket-title {
     font-size: 2rem;
     margin:10px auto;
 }
 .signUp-fieldset , .signIn-fieldset , .buyTicket-fieldset {
-    height: 500px;
+    height: 1000px;
 }
+
 .fieldset-email , .fieldset-password , .fieldset-name, .fieldset-nickname ,.fieldset-movieName, .fieldset-number, .fieldset-calender{
     margin-top:20px;
     font-size: 1.7rem;
 }
-#login_button, #reset_button, #send_button ,#book_button {
+#login_button, #send_button  {
     margin-top: 100px;
     height: 20%;
+    width: 10%;
+}
+#reset_button,#book_button {
+    margin-top:30px;
+    height: 5%;
     width: 10%;
 }
 .findPassword ,.signUp-signIn , .signIn-signUp  {

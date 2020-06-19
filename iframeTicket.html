@@ -16,7 +16,8 @@
             <fieldset class="buyTicket-fieldset">
                 <div class="fieldset-movieName">
                     <span>영화</span><br> 
-                    <select>
+                    <select id="movie_list" onchange="SaveTitle();">
+                        <option value="" selected disabled hidden > Select Movie</option>
                         <option value="IronMan1">아이언맨1</option>
                         <option value="carribean">캐리비안의 해적</option>
                         <option value="rampage">램페이지</option>
@@ -27,23 +28,21 @@
                 <div class="fieldset-number">
                     <span>인원</span><br>  
                     <label for="buyNumberId1">1명</label>
-                    <input id="buyNumberId1" class="buyTicket-number" name="book-number" type="radio" value="1"/>
+                    <input id="buyNumberId1" class="buyTicket-number" name="book-number" type="radio" value="1" onclick="SaveNumber();"/>
                     <label for="buyNumberId2">2명</label>
-                    <input id="buyNumberId2" class="buyTicket-number" name="book-number" type="radio" value="2"/>
+                    <input id="buyNumberId2" class="buyTicket-number" name="book-number" type="radio" value="2" onclick="SaveNumber();"/>
                     <label for="buyNumberId3">3명</label>
-                    <input id="buyNumberId3" class="buyTicket-number" name="book-number" type="radio" value="3"/>
+                    <input id="buyNumberId3" class="buyTicket-number" name="book-number" type="radio" value="3" onclick="SaveNumber();"/>
                     <label for="buyNumberId4">4명</label>
-                    <input id="buyNumberId4" class="buyTicket-number" name="book-number" type="radio" value="4"/>
-                    <label for="buyNumberId5">5명</label>
-                    <input id="buyNumberId5" class="buyTicket-number" name="book-number" type="radio" value="5"/>
+                    <input id="buyNumberId4" class="buyTicket-number" name="book-number" type="radio" value="4" onclick="SaveNumber();"/>
                 </div>
                 <div class="fieldset-calender">
                     <span>날짜</span><br>  
-                    <input id="buyTicket-calender" type="date" value="book-date" min="2020-05-12"/>
+                    <input id="buyTicket-calender" type="date" value="book-date" min="2020-06-17" onchange="SaveDate();"/>
                 </div>
                 <div class="fieldset-movieTime">
                     <span>영화시간</span><br> 
-                    <select>
+                    <select id="movie_time" onchange="SaveTime();">
                         <option value="10:00">10:00</option>
                         <option value="13:00">13:00</option>
                         <option value="15:00">15:00</option>
@@ -51,11 +50,412 @@
                         <option value="19:00">19:00</option>
                     </select>
                 </div>
-                <div class="fieldset-button-wrapper">
-                    <input id="book_button" type="submit" value="예매" onClick="alert('예매되었습니다. 금요일 파티 초대장이 메일로 발송되었습니다.')" />
-                    <input id="reset_button" type="reset" value="취소" />
+                <div class="fieldset-seats seats-wrapper">
+                    <span><h3>좌석 배치도</h3></span><br>
+                    <div class="A-seats">
+                        <div class="seats-line">A</div>
+                        <div id="A-01" class="block-seats"></div>
+                        <div id="A-02" class="block-seats"></div>
+                        <div id="A-03" class="block-seats"></div>
+                        <div id="A-04" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-06" class="seats"></div>
+                        <div id="A-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-26" class="seats"></div>
+                        <div id="A-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="A-29" class="seats"></div>
+                        <div id="A-30" class="block-seats"></div>
+                        <div id="A-31" class="block-seats"></div>
+                        <div id="A-32" class="block-seats"></div>
+                        <div id="A-33" class="block-seats"></div>
+                    </div>
+                    <div class="B-seats">
+                        <div class="seats-line">B</div>
+                        <div id="B-01" class="block-seats"></div>
+                        <div id="B-02" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-06" class="seats"></div>
+                        <div id="B-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-26" class="seats"></div>
+                        <div id="B-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="B-31" class="seats"></div>
+                        <div id="B-32" class="block-seats"></div>
+                        <div id="B-33" class="block-seats"></div>
+                    </div>
+                    <div class="C-seats">
+                        <div class="seats-line">C</div>
+                        <div onclick="SaveSeat(this.id);" id="C-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-06" class="seats"></div>
+                        <div id="C-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-26" class="seats"></div>
+                        <div id="C-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="C-33" class="seats"></div>
+                    </div>
+                    <div class="D-seats">
+                        <div class="seats-line">D</div>
+                        <div onclick="SaveSeat(this.id);" id="D-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-06" class="seats"></div>
+                        <div id="D-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-26" class="seats"></div>
+                        <div id="D-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="D-33" class="seats"></div>
+                    </div>
+                    <div class="E-seats">
+                        <div class="seats-line">E</div>
+                        <div onclick="SaveSeat(this.id);" id="E-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-06" class="seats"></div>
+                        <div id="E-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-26" class="seats"></div>
+                        <div id="E-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="E-33" class="seats"></div>
+                    </div>
+                    <div class="F-seats">
+                        <div class="seats-line">F</div>
+                        <div onclick="SaveSeat(this.id);" id="F-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-06" class="seats"></div>
+                        <div id="F-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-26" class="seats"></div>
+                        <div id="F-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="F-33" class="seats"></div>
+                    </div>
+                    <div class="G-seats">
+                        <div class="seats-line">G</div>
+                        <div onclick="SaveSeat(this.id);" id="G-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-06" class="seats"></div>
+                        <div id="G-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-26" class="seats"></div>
+                        <div id="G-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="G-33" class="seats"></div>
+                    </div>
+                    <div class="H-seats">
+                        <div class="seats-line">H</div>
+                        <div onclick="SaveSeat(this.id);" id="H-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-06" class="seats"></div>
+                        <div id="H-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-26" class="seats"></div>
+                        <div id="H-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="H-33" class="seats"></div>
+                    </div>
+                    <div class="I-seats">
+                        <div class="seats-line">I</div>
+                        <div onclick="SaveSeat(this.id);" id="I-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-06" class="seats"></div>
+                        <div id="I-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-26" class="seats"></div>
+                        <div id="I-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="I-33" class="seats"></div>
+                    </div>
+                    <div class="J-seats">
+                        <div class="seats-line">J</div>
+                        <div onclick="SaveSeat(this.id);" id="J-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-06" class="seats"></div>
+                        <div id="J-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-26" class="seats"></div>
+                        <div id="J-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="J-33" class="seats"></div>
+                    </div>
+                    <div class="K-seats">
+                        <div class="seats-line">K</div>
+                        <div onclick="SaveSeat(this.id);" id="K-01" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-02" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-03" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-04" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-05" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-06" class="seats"></div>
+                        <div id="K-07" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-08" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-09" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-10" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-11" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-12" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-13" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-14" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-15" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-16" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-17" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-18" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-19" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-20" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-21" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-22" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-23" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-24" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-25" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-26" class="seats"></div>
+                        <div id="K-27" class="block-seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-28" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-29" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-30" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-31" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-32" class="seats"></div>
+                        <div onclick="SaveSeat(this.id);" id="K-33" class="seats"></div>
+                    </div>
                 </div>
+                <!--<input id="book_button" type="submit" value="좌석 보러가기"/> 좌석선택으로 넘김 -->
+                <!-- 버튼안에는 a 링크 넣으면 동작안함-->
+                <input id="book_button" type="button" value="예매하기" onclick="SaveInfo(); location.href='iframeShowTIcket.html'"/>
+                <input id="reset_button" type="reset" value="취소" />  
             </fieldset>
         </form> 
+        <script src="booking.js">
+        </script>
     </body>
 </html>

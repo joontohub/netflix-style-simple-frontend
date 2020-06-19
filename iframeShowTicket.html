@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>NutPlus</title>
+        <link rel="stylesheet" href="style-layout.css">
+        <link rel="stylesheet" href="style-presentation.css">
+        <link rel="stylesheet" href="style-size.css">
+        <script src="https://kit.fontawesome.com/4d89e47c14.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body onload="BookingList();">  
+        <div class="showTicket-wrapper">
+            <div class="showTicket-title">
+                예매내역
+            </div>
+           
+            <div class="remove-wrapper">
+                <select name="removeSelect" id="rmvSelect">
+                    <option value="" selected disabled hidden > remove Movie </option>
+                </select>
+                <div class="remove_movie_button" type="button" onclick="removeMovieList();">remove</div>
+                <div class="remove_movie_button" type="button" onclick="removeAllMovieList();">All remove</div>
+            </div>
+            <div class="bookingList">
+                <div class="showing-Movie" id="showing-ironman" type="button" onclick="BookingList();">
+                    <div>
+                        SHOWING MOVIE LIST
+                    </div>
+                </div>
+                <div id="booking-contents">
+                    
+                </div>
+            </div>
+        </div>
+        <script src="booking.js">
+        </script>
+    </body>
+</html>
